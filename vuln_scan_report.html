@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Task 3 - Vulnerability Scan Report</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; color: #111; }
+h1, h2 { color: #2b6cb0; }
+table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
+th { background: #2b6cb0; color: white; }
+pre { background: #f6f6f8; padding: 10px; border-radius: 6px; }
+.note { color: #555; font-size: 14px; margin-top: 8px; }
+ul { margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<h1>Task 3 – Basic Vulnerability Scan Report</h1>
+<p><strong>Objective:</strong> Use free tools (OpenVAS/Nessus Essentials) to identify common vulnerabilities on the computer.</p>
+
+<h2>Tools Used</h2>
+<ul>
+<li>OpenVAS / Nessus Essentials (vulnerability scanner)</li>
+<li>Web browser (for research & fixing guidance)</li>
+</ul>
+
+<h2>Steps Followed</h2>
+<ul>
+<li>Installed and configured OpenVAS / Nessus Essentials (or used trial).</li>
+<li>Set up scan target: local machine IP (e.g., 127.0.0.1 or 192.168.1.5).</li>
+<li>Started a full vulnerability scan and waited for completion (30-60 mins typical).</li>
+<li>Reviewed the report, prioritized by severity (Critical, High, Medium, Low).</li>
+<li>Researched simple fixes for identified vulnerabilities.</li>
+<li>Documented the most critical findings and mitigation steps.</li>
+<li>Took screenshots of scan results (add to screenshots/ folder for repo).</li>
+</ul>
+
+<h2>Identified Vulnerabilities (Sample)</h2>
+<table>
+<thead>
+<tr><th>Severity</th><th>Vulnerability</th><th>Description</th><th>Suggested Fix</th></tr>
+</thead>
+<tbody>
+<tr><td>Critical</td><td>Default/Weak Credentials</td><td>Services using default or weak passwords (e.g., admin:admin).</td><td>Change default passwords; enforce strong password policy; use MFA.</td></tr>
+<tr><td>High</td><td>Outdated OpenSSH (CVE-XXXX-YYYY)</td><td>Unpatched SSH server with known remote code execution flaw.</td><td>Update OpenSSH to latest stable version; apply vendor patch.</td></tr>
+<tr><td>High</td><td>SMBv1 Enabled</td><td>Old SMB protocol vulnerable to wormable exploits (e.g., WannaCry).</td><td>Disable SMBv1; enable SMBv2/3 and apply updates.</td></tr>
+<tr><td>Medium</td><td>Missing Security Updates</td><td>OS or installed apps missing recent security patches.</td><td>Run system updates and schedule regular patching.</td></tr>
+<tr><td>Low</td><td>Weak TLS Configuration</td><td>Uses TLS 1.0/1.1 and weak ciphers.</td><td>Configure server to use TLS 1.2+ and strong cipher suites; renew certificates if needed.</td></tr>
+</tbody>
+</table>
+
+<h2>Prioritization & CVSS</h2>
+<p>Use CVSS scores to prioritize remediation. Fix 'Critical' and 'High' issues first. Validate fixes by re-scanning after remediation.</p>
+
+<h2>General Recommendations</h2>
+<ul>
+<li>Perform full system backups before major changes.</li>
+<li>Apply OS and application security updates promptly.</li>
+<li>Remove or disable unnecessary services and software.</li>
+<li>Harden configurations (disable legacy protocols like SMBv1, SSLv3).</li>
+<li>Use strong, unique passwords and enable multi-factor authentication.</li>
+<li>Schedule recurring vulnerability scans and monitor logs.</li>
+<li>Re-scan after fixes to confirm remediation.</li>
+</ul>
+
+<h2>Interview Questions & Answers</h2>
+<ul>
+<li><strong>What is vulnerability scanning?</strong> Automated process of discovering known security weaknesses in systems or applications.</li>
+<li><strong>Difference between vulnerability scanning and penetration testing?</strong> Scanning is automated discovery; penetration testing attempts to exploit vulnerabilities manually for proof-of-concept.</li>
+<li><strong>What are common vulnerabilities in personal computers?</strong> Outdated software, weak passwords, open services, missing patches, and insecure configurations.</li>
+<li><strong>How do scanners detect vulnerabilities?</strong> By matching service versions and configurations against vulnerability databases (e.g., CVE/NVD).</li>
+<li><strong>What is CVSS?</strong> Common Vulnerability Scoring System — numeric scoring to indicate severity (0.0 to 10.0).</li>
+<li><strong>How often should vulnerability scans be performed?</strong> At minimum monthly for critical systems; weekly or daily for high-risk networks.</li>
+<li><strong>What is a false positive?</strong> A reported vulnerability that is not actually exploitable in the scanned environment.</li>
+<li><strong>How to prioritize vulnerabilities?</strong> By severity (CVSS), exploitability, and business impact; focus on Critical/High first.</li>
+</ul>
+
+<footer class="note">Prepared for: Cyber Security Internship — Task 3</footer>
+
+</body>
+</html>
